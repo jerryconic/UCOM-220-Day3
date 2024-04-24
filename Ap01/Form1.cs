@@ -16,5 +16,28 @@ namespace Ap01
         {
             InitializeComponent();
         }
+
+        private void btnExchange_Click(object sender, EventArgs e)
+        {
+            int nt;
+            decimal amount;
+            int.TryParse(txtNT.Text, out nt);
+            switch(cmbCurr.Text)
+            {
+                case "美金":
+                    amount = nt / 30.05m;
+                    break;
+                case "日圓":
+                    amount = nt / 0.2756M;
+                    break;
+                case "歐元":
+                    amount = nt / 32.15m;
+                    break;
+                default:
+                    amount = 0;
+                    break;
+            }
+            txtAmount.Text = amount.ToString("#,##0.00");
+        }
     }
 }
